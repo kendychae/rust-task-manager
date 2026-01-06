@@ -88,6 +88,25 @@ impl TaskManager {
         println!("Pending: {}", pending);
         println!("─────────────────────────────────────");
     }
+
+    /// View the last N tasks using slicing - demonstrates Rust's slice feature
+    fn view_recent_tasks(&self, count: usize) {
+        let total = self.tasks.len();
+        if total == 0 {
+            println!("📋 No tasks yet.");
+            return;
+        }
+        
+        let start = if total > count { total - count } else { 0 };
+        let recent_tasks = &self.tasks[start..];  // Slicing: creates a view into the vector
+        
+        println!("\n📋 Last {} task(s):", recent_tasks.len());
+        println!("─────────────────────────────────────");
+        for task in recent_tasks {
+            task.display();
+        }
+        println!("─────────────────────────────────────");
+    }
 }
 
 fn print_header() {
@@ -104,8 +123,9 @@ fn print_menu() {
     println!("3. Complete a task");
     println!("4. Delete a task");
     println!("5. View statistics");
-    println!("6. Exit");
-    print!("\nChoose an option (1-6): ");
+    println!("6. View recent tasks");
+    println!("7. Exit");
+    print!("\nChoose an option (1-7): ");
     io::stdout().flush().unwrap();
 }
 
@@ -173,12 +193,23 @@ fn main() {
                 manager.get_stats();
             }
             "6" => {
+                print!("How many recent tasks to view? (default 3): ");
+                io::stdout().flush().unwrap();
+                let input = get_user_input();
+                let count = if input.is_empty() {
+                    3
+                } else {
+                    input.parse::<usize>().unwrap_or(3)
+                };
+                manager.view_recent_tasks(count);
+            }
+            "7" => {
                 println!("\n👋 Thanks for using Rust Task Manager!");
                 println!("Keep coding and building amazing things! 🚀");
                 break;
             }
             _ => {
-                println!("❌ Invalid option. Please choose 1-6.");
+                println!("❌ Invalid option. Please choose 1-7.");
             }
         }
     }

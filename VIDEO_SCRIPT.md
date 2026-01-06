@@ -19,8 +19,9 @@
 **Option 2** - List tasks - Shows all with checkboxes  
 **Option 3** - Complete task 1 - Now has checkmark
 **Option 5** - Stats - Shows 4 total, 1 complete, 3 pending
+**Option 6** - View recent tasks: shows last 2 tasks - this uses slicing
 **Option 4** - Delete task 3 - Removed
-**Option 6** - Exit"
+**Option 7** - Exit"
 
 ## CODE WALKTHROUGH (2 minutes)
 **[VS Code - main.rs]**
@@ -37,12 +38,15 @@
 
 **main function** - Creates mutable TaskManager. The match expression handles menu choices - it's exhaustive, compiler ensures all cases handled.
 
+**view_recent_tasks method** - Uses slicing: `&self.tasks[start..]` creates a view into the vector without copying. This is efficient and demonstrates Rust's slice type.
+
 **Key concepts demonstrated:**
 - Variables: mutable (`mut manager`) and immutable
 - Conditionals: if/else and if let
 - Loops: loop and for
 - Functions with references: &self and &mut self  
 - Data structures: Vec
+- Slicing: &self.tasks[start..] for efficient views
 - Structs with impl blocks
 
 The borrow checker was challenging but taught me to write safer code."

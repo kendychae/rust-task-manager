@@ -28,8 +28,8 @@ The purpose of creating this software is to gain hands-on experience with Rust's
 1. Clone this repository:
 
    ```bash
-   git clone https://github.com/kendychae/rust-learning-project.git
-   cd rust-learning-project
+   git clone https://github.com/kendychae/rust-task-manager.git
+   cd rust-task-manager
    ```
 
 2. Build the project:

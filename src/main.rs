@@ -45,9 +45,9 @@ impl TaskManager {
     /// Adds a new task to the task list
     /// Uses mutable reference (&mut self) to modify the tasks vector
     fn add_task(&mut self, description: String) {
-        let task = Task::new(self.next_id, description);
+        let task = Task::new(self.next_id, description.clone());
+        println!("✅ Task {} '{}' added successfully!", self.next_id, description);
         self.tasks.push(task);
-        println!("✅ Task {} added successfully!", self.next_id);
         self.next_id += 1;
     }
 
@@ -71,7 +71,7 @@ impl TaskManager {
     fn complete_task(&mut self, id: usize) {
         if let Some(task) = self.tasks.iter_mut().find(|t| t.id == id) {
             task.completed = true;
-            println!("🎉 Task {} marked as complete!", id);
+            println!("🎉 Task {} '{}' marked as complete!", id, task.description);
         } else {
             println!("❌ Task {} not found.", id);
         }
@@ -80,8 +80,8 @@ impl TaskManager {
     /// Deletes a task from the list by its ID
     fn delete_task(&mut self, id: usize) {
         if let Some(pos) = self.tasks.iter().position(|t| t.id == id) {
-            self.tasks.remove(pos);
-            println!("🗑️  Task {} deleted.", id);
+            let deleted_task = self.tasks.remove(pos);
+            println!("🗑️  Task {} '{}' deleted.", id, deleted_task.description);
         } else {
             println!("❌ Task {} not found.", id);
         }

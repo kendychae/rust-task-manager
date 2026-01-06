@@ -3,16 +3,19 @@
 ## ✅ BEFORE YOU START RECORDING
 
 **Open these windows:**
+
 1. PowerShell/Terminal in your project folder: `c:\Users\kendy\Desktop\rust-task-manager`
 2. VS Code with main.rs open
 3. Loom recording software
 
 **Test your setup:**
+
 - Turn on your webcam - make sure your face is visible
 - Test audio - speak and listen to playback
 - Position windows so you can share your screen clearly
 
 **Quick test run:**
+
 - Type `cargo run` in terminal to make sure program works
 - Close the program (option 7)
 - Clear terminal: `cls`
@@ -22,23 +25,23 @@
 ## 🎬 PART 1: INTRODUCTION (20-30 seconds)
 
 ### What to do:
+
 Start Loom recording. Make sure your webcam shows your face in a small window.
 
 ### What to say (read this exactly):
 
-> "Hi! My name is Kendahl Bingham. I'm a student at BYU-Idaho taking CSE 310.
-> 
-> For Module 1, I learned Rust programming by building a command-line task manager.
-> 
-> This project demonstrates variables, conditionals, loops, functions, data structures, and Rust's unique ownership system.
-> 
-> Let me show you how it works."
+> "Hi! My name is Kendahl Bingham, and I'm a software developer.
+>
+> I built this command-line task manager in Rust to demonstrate my understanding of systems programming.
+>
+> This project showcases variables, conditionals, loops, functions, data structures, and Rust's unique ownership system.
 
 ---
 
 ## 🎬 PART 2: SOFTWARE DEMO (1.5 minutes)
 
 ### What to do:
+
 Share your screen showing the terminal.
 
 ### What to say and type:
@@ -138,6 +141,7 @@ Share your screen showing the terminal.
 ## 🎬 PART 3: CODE WALKTHROUGH (2 minutes)
 
 ### What to do:
+
 Switch to VS Code showing main.rs
 
 ---
@@ -152,9 +156,9 @@ First is the Task struct. A struct is like a container that holds related data. 
 
 ### Show: impl Task (lines 13-25)
 
-**Say:** "This impl block adds methods to the Task struct. 
+**Say:** "This impl block adds methods to the Task struct.
 
-The 'new' function creates a new task. 
+The 'new' function creates a new task.
 
 The 'display' method prints the task with a checkbox."
 
@@ -237,6 +241,7 @@ And structs with impl blocks for object-oriented programming."
 ## 🎬 PART 4: REFLECTION & CLOSING (30 seconds)
 
 ### What to do:
+
 You can show your face again or stay on code screen.
 
 ### What to say:
@@ -256,6 +261,7 @@ You can show your face again or stay on code screen.
 ## ✅ AFTER RECORDING
 
 1. **Watch your video** - Make sure:
+
    - Your face is visible
    - Audio is clear
    - All features were demonstrated

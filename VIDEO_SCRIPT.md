@@ -1,6 +1,7 @@
 # 🎬 Minimal Video Script for Loom (4-5 minutes)
 
 ## Before Recording:
+
 - Open terminal in project folder
 - Open VS Code with main.rs
 - Test Loom - ensure camera shows your face
@@ -8,9 +9,11 @@
 ---
 
 ## INTRO (20 seconds)
+
 "Hi! I'm Kendahl Bingham. For CSE 310 Module 1, I built a command-line task manager in Rust to learn ownership, borrowing, and structs. Let me demo it."
 
 ## DEMO (90 seconds)
+
 **[Terminal - type: cargo run]**
 
 "The app loads with demo tasks. I'll show key features:
@@ -24,6 +27,7 @@
 **Option 7** - Exit"
 
 ## CODE WALKTHROUGH (2 minutes)
+
 **[VS Code - main.rs]**
 
 "Quick code overview:
@@ -41,10 +45,11 @@
 **view_recent_tasks method** - Uses slicing: `&self.tasks[start..]` creates a view into the vector without copying. This is efficient and demonstrates Rust's slice type.
 
 **Key concepts demonstrated:**
+
 - Variables: mutable (`mut manager`) and immutable
 - Conditionals: if/else and if let
 - Loops: loop and for
-- Functions with references: &self and &mut self  
+- Functions with references: &self and &mut self
 - Data structures: Vec
 - Slicing: &self.tasks[start..] for efficient views
 - Structs with impl blocks
@@ -52,6 +57,7 @@
 The borrow checker was challenging but taught me to write safer code."
 
 ## CLOSING (30 seconds)
+
 "This project taught me Rust's ownership system and memory safety. The compiler is strict but prevents bugs at compile time. I'm confident with Rust basics and ready for more advanced features. Thanks for watching!"
 
 **[End recording]**
@@ -59,8 +65,9 @@ The borrow checker was challenging but taught me to write safer code."
 ---
 
 ## After Recording:
+
 - [ ] Upload to Loom
-- [ ] Get shareable link  
+- [ ] Get shareable link
 - [ ] Add link to README.md (line 15)
 - [ ] Post link in MS Teams
 - [ ] Include link in submission document

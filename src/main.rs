@@ -11,6 +11,8 @@ struct Task {
 }
 
 impl Task {
+    /// Creates a new Task with the given id and description
+    /// The task is initialized as incomplete (completed = false)
     fn new(id: usize, description: String) -> Self {
         Task {
             id,
@@ -19,6 +21,7 @@ impl Task {
         }
     }
 
+    /// Displays the task with a checkbox indicating completion status
     fn display(&self) {
         let status = if self.completed { "✓" } else { " " };
         println!("[{}] {}. {}", status, self.id, self.description);
@@ -31,6 +34,7 @@ struct TaskManager {
 }
 
 impl TaskManager {
+    /// Creates a new empty TaskManager with next_id starting at 1
     fn new() -> Self {
         TaskManager {
             tasks: Vec::new(),
@@ -38,6 +42,8 @@ impl TaskManager {
         }
     }
 
+    /// Adds a new task to the task list
+    /// Uses mutable reference (&mut self) to modify the tasks vector
     fn add_task(&mut self, description: String) {
         let task = Task::new(self.next_id, description);
         self.tasks.push(task);
@@ -45,6 +51,8 @@ impl TaskManager {
         self.next_id += 1;
     }
 
+    /// Lists all tasks with their completion status
+    /// Uses immutable reference (&self) since we're only reading data
     fn list_tasks(&self) {
         if self.tasks.is_empty() {
             println!("📋 No tasks yet. Add your first task!");
@@ -58,6 +66,8 @@ impl TaskManager {
         }
     }
 
+    /// Marks a task as complete by its ID
+    /// Demonstrates mutable borrowing and Option type handling
     fn complete_task(&mut self, id: usize) {
         if let Some(task) = self.tasks.iter_mut().find(|t| t.id == id) {
             task.completed = true;
@@ -67,6 +77,7 @@ impl TaskManager {
         }
     }
 
+    /// Deletes a task from the list by its ID
     fn delete_task(&mut self, id: usize) {
         if let Some(pos) = self.tasks.iter().position(|t| t.id == id) {
             self.tasks.remove(pos);
@@ -76,6 +87,8 @@ impl TaskManager {
         }
     }
 
+    /// Displays statistics: total, completed, and pending tasks
+    /// Uses iterator methods to filter and count tasks
     fn get_stats(&self) {
         let total = self.tasks.len();
         let completed = self.tasks.iter().filter(|t| t.completed).count();
@@ -109,6 +122,7 @@ impl TaskManager {
     }
 }
 
+/// Prints the application header with ASCII art
 fn print_header() {
     println!("\n╔════════════════════════════════════════╗");
     println!("║   🦀 Rust Task Manager 🦀              ║");
@@ -116,6 +130,7 @@ fn print_header() {
     println!("╚════════════════════════════════════════╝");
 }
 
+/// Displays the main menu with all available options
 fn print_menu() {
     println!("\n📝 Menu:");
     println!("1. Add a new task");
@@ -129,6 +144,7 @@ fn print_menu() {
     io::stdout().flush().unwrap();
 }
 
+/// Reads a line of input from the user and returns it as a trimmed String
 fn get_user_input() -> String {
     let mut input = String::new();
     io::stdin()
@@ -137,6 +153,7 @@ fn get_user_input() -> String {
     input.trim().to_string()
 }
 
+/// Main entry point - sets up the task manager and runs the interactive menu loop
 fn main() {
     print_header();
     println!("\n👋 Welcome! This is my Rust learning project.");
